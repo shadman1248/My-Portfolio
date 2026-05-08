@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadman Babar - Full Stack Developer</title>
+
+   
+
+
+    <style>
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #DD2D4A 0%, #F26A8D 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #880D1E;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #880D1E;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #880D1E;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            margin-top: 0;
+        }
+
+        section:first-of-type {
+            margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Introduction Section */
+        .intro-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgb(255, 251, 251);
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #880D1E, #F26A8D );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-text .title {
+            font-size: 1.2rem;
+            color: #5a0e0e;
+            margin-bottom: 1.5rem;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #880D1E;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #880D1E;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .project-link {
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.8;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style: none;
+            color: #666;
+        }
+
+        .features-list li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #880D1E;
+            font-weight: bold;
+        }
+
+        /* Resume Section */
+        .resume-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form h3 {
+            color: #880D1E;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #880D1E;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .social-links h3 {
+            color: #880D1E;
+            font-size: 1.4rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #667eea;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .download-resume-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            padding: 1rem;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-resume-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .download-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #880D1E, #F26A8D);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .resume-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-text h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">SB</div>
+            <ul class="nav-links">
+                <li><a href="#intro">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section A: Introduction -->
+    <section id="intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="profile-photo">
+                    SB
+                </div>
+                <div class="intro-text">
+                    <h1>Shadman Babar</h1>
+                    <p class="title">Full Stack Web Developer</p>
+                    <p class="bio">
+                        "Motivated Computer Science student with hands-on experience in full stack development, adaptable in every field of technology. Skilled in graphic designing and web technologies, with strong foundations in DSA and problem-solving. Seeking an entry-level software development role to leverage my technical and creative abilities."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section B: Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section C: Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>E-Commerce Platform</h3>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">Source Code</a>
+                    </div>
+                    <p class="project-description">
+                        A full-featured e-commerce platform built with React and Node.js, featuring user authentication, 
+                        product catalog, shopping cart, and payment processing integration.
+                    </p>
+                    <ul class="features-list">
+                        <li>User registration and authentication</li>
+                        <li>Product search and filtering</li>
+                        <li>Shopping cart and checkout</li>
+                        <li>Admin dashboard for inventory management</li>
+                        <li>Payment integration with Stripe</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>Task Management App</h3>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">Source Code</a>
+                    </div>
+                    <p class="project-description">
+                        A collaborative task management application with real-time updates, built using React, Express.js, 
+                        and MongoDB with Socket.io for real-time communication.
+                    </p>
+                    <ul class="features-list">
+                        <li>Real-time task updates</li>
+                        <li>Team collaboration features</li>
+                        <li>Drag-and-drop task organization</li>
+                        <li>Due date reminders</li>
+                        <li>Progress tracking and analytics</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>Weather Dashboard</h3>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">Source Code</a>
+                    </div>
+                    <p class="project-description">
+                        A responsive weather dashboard that provides current weather conditions and forecasts for multiple 
+                        cities, built with vanilla JavaScript and integrated with OpenWeather API.
+                    </p>
+                    <ul class="features-list">
+                        <li>Current weather conditions</li>
+                        <li>5-day weather forecast</li>
+                        <li>City search functionality</li>
+                        <li>Geolocation support</li>
+                        <li>Interactive weather maps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section D: Resume/Contact -->
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="resume-content">
+                <form class="contact-form">
+                    <h3>Contact Form</h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="social-links">
+                    <h3>Connect With Me</h3>
+                    
+                    <!-- PDF Resume Download Button -->
+                    <button class="download-resume-btn" onclick="downloadResume()">
+                        <div class="download-icon">📄</div>
+                        <div>
+                            <strong>Download Resume</strong>
+                            <p>PDF Format</p>
+                        </div>
+                    </button>
+                    
+                    <a href="https://linkedin.com/in/johndeveloper" class="social-link">
+                        <div class="social-icon">Li</div>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <p>Professional Network</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/johndeveloper" class="social-link">
+                        <div class="social-icon">Gh</div>
+                        <div>
+                            <strong>GitHub</strong>
+                            <p>View My Code</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Resume download function
+        function downloadResume() {
+            // Create a simple PDF-like content
+            const resumeContent = `
+SHADMAN BABAR
+Full Stack Web Developer
+
+CONTACT INFORMATION
+Mob.no. - +916201559145
+Email: shadman.1248@gmail.com        
+LinkedIn: https://www.linkedin.com/in/shadman-babar-484bb630b/
+GitHub: https://github.com/shadman1248
+
+SKILLS
+Programming Language: Java
+Frontend: HTML5, CSS3, JavaScript, React.js
+Backend: Node.js, Express.js, Java
+Databases: MongoDB, MySQL
+Tools: VS Code, Git, GitHub, AWS
+
+PROJECTS
+1. Portfolio | Html,CSS & Javascript
+    -Developed a fully responsive portfolio website using HTML5
+    -Modern CSS3 (Flexbox/Grid), and vanilla JavaScript, optimizing for performance and accessibility.
+
+2. Calories Burn Predictor | Python, ML
+    -Predicted calories burned using regression models o	Optimized accuracy through preprocessing and model tuning  
+    -Optimized accuracy through preprocessing and model tuning  
+
+3. Thoughtbook | MongoDB, Express.js, React, and Node.js.
+    -Built a full-stack journaling app with user authentication 
+    -CRUD features using MongoDB, Express.js, React, and Node.js.
+
+
+INTERNSHIP/EXPERIENCE
+Web Developer Intern - Database cloud Education & Development. Bhopal
+    -Web Developer Intern at Database Cloud , contributed to Real-time projects & development tasks.
+    -Proficiently implemented HTML, CSS , JavaScript , React and MongoDB  in various tasks and projects.
+
+EDUCATION
+    Bachelor of Engineering (Computer Science) :    (2023-26)
+    Truba Institute Of Engineering And Information Technology, Bhopal
+    CGPA: 7.9
+            `;
+
+            // Create a blob with the resume content
+            const blob = new Blob([resumeContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            
+            // Create a temporary download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'John_Developer_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            
+            // Show success message
+            alert('Resume downloaded successfully!');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
