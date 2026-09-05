@@ -48,6 +48,23 @@ Aspiring Full-Stack Developer and B.Tech CSE student proficient in the "MERN Sta
 
 # 🚀 Projects
 
+## 🚚 Picker Packers & Movers
+
+** MERN Stack
+** May 2026 - Present**
+
+### Features
+
+-Responsive Full Stack Web Application
+-REST APIs using Node.js & Express
+-Dynamic Service & Portfolio Management
+-Regional Coverage & Location Mapping
+-Lead Generation & Inquiry Routing
+-Secure Contact Forms & Admin Dashboard
+-SEO-Optimized Frontend UI
+
+---
+
 ## 💬 ChatZoom
 **MERN Stack | Socket.IO**
 
@@ -63,21 +80,6 @@ Aspiring Full-Stack Developer and B.Tech CSE student proficient in the "MERN Sta
 
 ---
 
-## 📖 ThoughtBook
-**MERN Stack**
-
-**Sept 2025 – Nov 2025**
-
-### Features
-- Secure JWT Authentication
-- Password encryption using bcrypt
-- Complete CRUD functionality
-- Responsive React frontend
-- Protected Routes
-- RESTful APIs
-- MongoDB database integration
-
----
 
 ## 🍔 Food Delivery Application
 **MERN Stack**
@@ -92,6 +94,24 @@ Aspiring Full-Stack Developer and B.Tech CSE student proficient in the "MERN Sta
 - Order Management
 - Real-time Order Tracking
 - Live User Notifications
+
+--- 
+
+
+## 📖 ThoughtBook
+**MERN Stack**
+
+**Sept 2025 – Nov 2025**
+
+### Features
+- Secure JWT Authentication
+- Password encryption using bcrypt
+- Complete CRUD functionality
+- Responsive React frontend
+- Protected Routes
+- RESTful APIs
+- MongoDB database integration
+
 
 ---
 
